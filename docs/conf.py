@@ -88,7 +88,7 @@ extensions = [
     "sphinxcontrib.bibtex",
     "matplotlib.sphinxext.plot_directive",
     "sphinxcontrib.jquery",
-    "nbsphinx",
+    # "nbsphinx",
     "numpydoc",
     "recommonmark",
 ]
@@ -376,11 +376,43 @@ def generate_tutorials_page(app):
         if "tutorial_" in notebook.name and "checkpoint" not in notebook.name:
             notebooks += f"\n* :doc:`{notebook.parent}/{notebook.stem}`"
 
-    title = "Tutorials\n*********\n"
-    description = "The following pages contain the TARDIS tutorials:"
+    title = "In-Depth Tutorials\n******************\n"
+    description = """Learn TARDIS step-by-step with these interactive tutorials:
+
+Basic TARDIS Usage
+==================
+
+* :doc:`quickstart` - Quick introduction to running TARDIS
+* :doc:`io/configuration/tutorial_read_configuration` - Understanding TARDIS configuration files
+* :doc:`workflows/simple_workflow` - Simple TARDIS workflow example
+* :doc:`workflows/standard_workflow` - Standard TARDIS workflow
+
+Spectrum Generation and Analysis
+=================================
+
+* :doc:`physics/spectrum/basic` - Basic spectrum generation techniques
+* :doc:`analyzing_tardis/spectrum/spectrum-visualization-notebook` - Spectrum visualization methods
+* :doc:`analyzing_tardis/spectrum/sdec_notebook` - Spectral element decomposition
+
+Visualization and Diagnostics
+==============================
+
+* :doc:`analyzing_tardis/visualization/how_to_sdec_plot` - Creating SDEC (Spectral Element Decomposition) plots
+* :doc:`analyzing_tardis/visualization/how_to_liv_plot` - Creating LIV (Last Interaction Velocity) plots
+* :doc:`analyzing_tardis/visualization/tutorial_convergence_plot` - Analyzing convergence with plots
+* :doc:`analyzing_tardis/visualization/tutorial_montecarlo_packet_visualization` - Monte Carlo packet visualization
+* :doc:`analyzing_tardis/rpacket_plot_notebook` - R-packet trajectory analysis
+
+Advanced Features
+==================
+
+* :doc:`io/optional/tutorial_callback_example` - Using callbacks for custom analysis
+* :doc:`io/optional/tutorial_logging_configuration` - Configuring logging systems
+* :doc:`analyzing_tardis/visualization/how_to_abundance_widget` - Interactive abundance widgets
+* :doc:`workflows/high_energy/run_high_energy_workflow` - High-energy gamma-ray simulations"""
 
     with open("tutorials.rst", mode="wt", encoding="utf-8") as f:
-        f.write(f"{title}\n{description}\n{notebooks}")
+        f.write(f"{title}\n{description}")
 
 def generate_how_to_guides_page(app):
     """Create how_to_guides.rst"""

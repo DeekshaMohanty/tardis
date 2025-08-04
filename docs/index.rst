@@ -48,8 +48,6 @@ This documentation is organized following the `Diátaxis framework <https://diat
 - **Reference**: Technical specifications and API documentation
 - **Explanation**: Deep dives into the physics and theory behind TARDIS
 
-📋 :doc:`documentation_guide` - Detailed navigation guide
-
 -----------------
 Mission Statement
 -----------------
@@ -74,7 +72,7 @@ Mission Statement
     :caption: Tutorials
     :hidden:
 
-    Getting Started with TARDIS: Hands-On Tutorials
+    tutorials
 
 .. toctree::
     :maxdepth: 2
